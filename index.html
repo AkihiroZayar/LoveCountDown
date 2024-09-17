@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with Cute Dial Pad</title>
+    <link rel="stylesheet" href="Css/style2.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="left-section">
+            <img src="pic/loginphoto.jpg" alt="Profile Photo" class="profile-photo">
+        </div>
+        <div class="right-section">
+            <h2>Enter PIN Code</h2>
+            <div class="pin-display">
+                <input type="password" id="pin-code" maxlength="4" readonly>
+            </div>
+            <div class="dial-pad">
+                <button class="dial-btn" onclick="enterPin(1)">1</button>
+                <button class="dial-btn" onclick="enterPin(2)">2</button>
+                <button class="dial-btn" onclick="enterPin(3)">3</button>
+                <button class="dial-btn" onclick="enterPin(4)">4</button>
+                <button class="dial-btn" onclick="enterPin(5)">5</button>
+                <button class="dial-btn" onclick="enterPin(6)">6</button>
+                <button class="dial-btn" onclick="enterPin(7)">7</button>
+                <button class="dial-btn" onclick="enterPin(8)">8</button>
+                <button class="dial-btn" onclick="enterPin(9)">9</button>
+                <button class="dial-btn" onclick="clearPin()">C</button>
+                <button class="dial-btn" onclick="enterPin(0)">0</button>
+                <a href="calendar.html"><button class="dial-btn">Ok</button></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let pin = '';
+
+        function enterPin(num) {
+            if (pin.length < 4) {
+                pin += num;
+                document.getElementById('pin-code').value = pin;
+            }
+        }
+
+        function clearPin() {
+            pin = '';
+            document.getElementById('pin-code').value = '';
+        }
+
+        function submitPin() {
+            if (pin.length === 4) {
+                alert('PIN Submitted: ' + pin);
+                // You can submit the PIN here or make an AJAX call
+            } else {
+                alert('Please enter a 4-digit PIN');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+/* Make everything centered and responsive */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  background-size: cover;
+}
+
+.countdown-content {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.time-display {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.time-box {
+  margin: 0 10px;
+  text-align: center;
+}
+
+.time-box span {
+  font-size: 48px;
+  color: #ff007f;
+}
+
+.time-box p {
+  font-size: 16px;
+  color: #333;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.nav-button {
+  background-color: #ff00803b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.nav-button:hover {
+  background-color: #ff3399;
+}
+
+.action-container {
+  margin-top: 20px;
+}
+
+.action-button {
+  background-color: #ff007f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background-color: #ff3399;
+}
+
+@media screen and (max-width: 600px) {
+  .time-box span {
+    font-size: 32px;
+  }
+
+  .time-box p {
+    font-size: 14px;
+  }
+
+  .action-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .nav-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}

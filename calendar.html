@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Counter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe4e1;
+            font-family: Arial, sans-serif;
+        }
+
+        .counter-container {
+            text-align: center;
+            background-color: #fff0f527;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .counter-title {
+            font-size: 2.5em;
+            color: #ff4081;
+            margin-bottom: 20px;
+        }
+
+        .time-unit {
+            font-size: 1.5em;
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            background-color: #f7c8e0;
+            border-radius: 8px;
+        }
+
+        .time-unit span {
+            display: block;
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .since-date {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter-container">
+        <div class="counter-title">We in love</div>
+        <div class="time-unit">
+            <span id="years">0</span>Years
+        </div>
+        <div class="time-unit">
+            <span id="months">0</span>Months
+        </div>
+        <div class="time-unit">
+            <span id="days">0</span>Days
+        </div>
+        <div class="time-unit">
+            <span id="hours">0</span>Hours
+        </div>
+        <div class="time-unit">
+            <span id="minutes">0</span>Minutes
+        </div>
+        <div class="time-unit">
+            <span id="seconds">0</span>Seconds
+        </div>
+        <div class="since-date">Since January 20, 2024</div>
+
+        <div style="padding-top: 20px;
+                    ;">
+          <a href="index.html" ><button style="border-radius: 20px;
+          background-color:pink;
+          border: pink;
+          padding: 10px;
+          cursor: pointer;"
+            >Prev</button></a>
+
+
+            <a href="menu.html" ><button style="border-radius: 20px;
+              background-color:pink;
+              border: pink;
+              padding: 10px;
+              cursor: pointer; "
+                >Next</button></a>
+        </div>
+        
+ 
+    </div>
+
+    <script>
+        function updateLoveCounter() {
+            const startDate = new Date('January 20, 2024 00:00:00');
+            const now = new Date();
+
+            let years, months, days, hours, minutes, seconds;
+            let timeDifference = now - startDate;
+
+            if (timeDifference >= 0) {
+                // Calculate years
+                years = now.getFullYear() - startDate.getFullYear();
+
+                // Calculate months
+                months = now.getMonth() - startDate.getMonth();
+                if (months < 0) {
+                    years--;
+                    months += 12;
+                }
+
+                // Calculate days
+                days = now.getDate() - startDate.getDate();
+                if (days < 0) {
+                    months--;
+                    const lastMonthDate = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+                    days += lastMonthDate;
+                }
+
+                // Calculate hours
+                hours = now.getHours() - startDate.getHours();
+                if (hours < 0) {
+                    days--;
+                    hours += 24;
+                }
+
+                // Calculate minutes
+                minutes = now.getMinutes() - startDate.getMinutes();
+                if (minutes < 0) {
+                    hours--;
+                    minutes += 60;
+                }
+
+                // Calculate seconds
+                seconds = now.getSeconds() - startDate.getSeconds();
+                if (seconds < 0) {
+                    minutes--;
+                    seconds += 60;
+                }
+            } else {
+                // Future date not reached yet
+                years = months = days = hours = minutes = seconds = 0;
+            }
+
+            // Update the HTML
+            document.getElementById('years').innerText = years;
+            document.getElementById('months').innerText = months;
+            document.getElementById('days').innerText = days;
+            document.getElementById('hours').innerText = hours;
+            document.getElementById('minutes').innerText = minutes;
+            document.getElementById('seconds').innerText = seconds;
+        }
+
+        // Update the counter every second
+        setInterval(updateLoveCounter, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(../pic/loginback.jpg);
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover; /* Makes the background cover the entire viewport */
+  background-position: center; /* Ensures the image is centered */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Keeps the background fixed when scrolling */
+}
+
+.login-container {
+  display: flex;
+  flex-direction: row; /* Horizontal layout for larger screens */
+  width: 90%; /* Use percentages to make it fluid */
+  max-width: 700px;
+  height: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff00;
+}
+
+.left-section {
+  flex: 1;
+  background-color: #f0f0f09c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.left-section .profile-photo {
+  width: 100%;
+  max-width: 250px; /* Limit size to keep the image responsive */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.right-section {
+  flex: 1;
+  background-color: #ffffff9c;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-section h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em; /* Responsive font size */
+  color: #333;
+}
+
+.pin-display input {
+  width: 100%;
+  max-width: 150px;
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #e9e9e9;
+}
+
+.dial-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.dial-btn {
+  width: 50px;
+  height: 50px;
+  font-size: 18px; /* Reduce font size for smaller buttons */
+  background-color: #FF69B4; /* Cute pink color */
+  color: #fff;
+  border: none;
+  border-radius: 50%; /* Makes the buttons circular */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dial-btn:hover {
+  background-color: #FF1493; /* Darker pink on hover */
+  transform: scale(1.1); /* Slightly enlarges the button on hover */
+}
+
+.dial-btn:active {
+  transform: scale(1);
+  box-shadow: none; /* Removes the shadow when clicked */
+}
+
+/* Make the layout responsive for smaller screens */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column; /* Stack the sections vertically */
+    height: auto; /* Allow the container to grow */
+  }
+
+  .left-section {
+    width: 100%;
+  }
+
+  .right-section {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .dial-btn {
+    width: 60px; /* Make buttons larger for touch devices */
+    height: 60px;
+    font-size: 20px;
+  }
+}
+
+/* Adjust further for very small screens (mobile phones) */
+@media (max-width: 480px) {
+  .pin-display input {
+    font-size: 1em;
+    padding: 5px;
+  }
+
+  .dial-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
+  }
+
+  .right-section h2 {
+    font-size: 1.2em;
+  }
+}
